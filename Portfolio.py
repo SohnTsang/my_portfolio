@@ -2,7 +2,22 @@ import streamlit as st
 import pandas
 
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    .css-15zrgzn {display: none}
+        .css-eczf16 {display: none}
+        .css-jn99sy {display: none}
+</style>
+'''
+
+st.markdown(hide_img_fs, unsafe_allow_html=True)
+
 
 st.markdown("<h2 style='text-align: center; color: white;'>Sohn's Portfolio</h2>", unsafe_allow_html=True)
 
@@ -49,8 +64,5 @@ with col3:
         st.write(f"[Source Code] {row['url']}")
         st.text("")
 
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
+
 
