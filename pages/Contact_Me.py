@@ -20,5 +20,9 @@ From: {user_email}
     submit_button = st.form_submit_button("Submit")
 
     if submit_button:
-        send_email(raw_message, user_email)
-        st.info("Your email was sent successfully!")
+
+        try:
+            send_email(raw_message, user_email)
+            st.info("Your email was sent successfully!")
+        except:
+            st.info("Something is wrong. Please kindly check if the email address is correct or try again later.")
